@@ -1,0 +1,45 @@
+<link rel="import" href="bower_components/polymer/polymer.html">
+<link rel="import" href="bower_components/core-style/core-style.html">
+<link rel="import" href="tef_dialog_styles.html">
+
+<polymer-element name="tef-dialog" attributes="modal">
+    <template>
+        <core-style ref="tef-dialog"></core-style>
+        <template if="{{modal}}">
+            <div id="modal" class="tef-modal">
+                <div class="tef-dialog">
+                    <content></content>
+    	        </div>
+            </div>
+        </template>
+        <template if="{{!modal}}">
+            <div class="tef-dialog">
+                <content></content>
+        </template>
+    </template>
+	<script>
+        Polymer({
+            modal: false,
+            hide: function(){
+            	if (this.modal){
+            		this.$.modal.setAttribute("class", "tef-modal");
+            	}
+            },
+            show: function(){
+            	if (this.modal){
+            		this.$.modal.setAttribute("class", "tef-modal show");
+            	}
+            },
+            ready: function(){
+                if (this.modal){
+                    this.$.modal.addEventListener('click', function(event){
+                        if (event.target == this.$.modal)
+                            this.hide();
+                    }.bind(this));
+                }
+
+                
+            }
+        });				
+	</script>	
+</polymer-element>

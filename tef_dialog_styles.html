@@ -1,0 +1,70 @@
+<core-style id="tef-dialog">
+  :host .tef-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.7);
+    text-align: center;
+    z-index: 100;
+    font-size: 0;
+  }
+  :host .tef-modal:before {
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    width: 1px;
+    height: 100%;
+    margin-left: -1px;
+  }
+  :host .tef-modal > * {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  :host .tef-modal.show {
+    display: block;
+  }
+  :host .tef-dialog {
+    position: relative;
+    margin: 20px;
+    background: white;
+    color: {{g.grey6}};
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 25px;
+    text-align: center;
+    padding: 30px 40px 40px;
+    border-radius: 4px;
+    box-shadow: {{g.shadow}};
+  }
+  :host .tef-dialog header {
+    font-size: 26px;
+    line-height: 28px;
+    margin-bottom: 35px;
+  }
+  :host .tef-dialog .tef-close {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    height: 40px;
+    width: 40px;
+    border: none;
+    background: transparent;
+    font-size: 15px;
+    color: {{g.grey3}};
+    cursor: pointer;
+    border-radius: 50%;
+  }
+  :host .tef-dialog footer {
+    margin-top: 25px;
+  }
+  :host .tef-dialog footer .tef-button {
+    min-width: 120px;
+  }
+  :host .tef-dialog footer .tef-button + .tef-button {
+    margin-left: 7px;
+  }
+
+</core-style>
