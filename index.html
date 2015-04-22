@@ -45,9 +45,9 @@
   </head>
 
   <body unresolved>
-    <div class="tef-wrapper">
-      <header data-columns="2" data-columns-xs="1">
-        <h1>Modals</h1>
+    <div class="tef-wrapper tef-content">
+      <header columns="2 xs1">
+        <h1>Headers</h1>
         <div>
           <label>Change theme</label>
           <div class="tef-dropdown" icon="angle_down">
@@ -61,38 +61,7 @@
         </div>
       </header>
 
-      <h2>Demo</h2>
-      <p>This button will add class "show" to "tef-modal" container, to make the modal visible.</p>
-      <button onclick="launchModal()" class="tef-button positive">
-        Launch modal window
-      </button>
-      <code>
-        <style>
-      <tef-dialog>
-          <header>Download started...</header>
-          <p>Downloading document. You will find it in your Downloads folder.</p>
-          <footer>
-            <button class="tef-button subdued">Cancel</button>
-            <button class="tef-button positive">Accept</button>
-          </footer>
-      </tef-dialog>
-        </style>
-      </code>
-
-    <tef-dialog modal id="modal1" closeIcon>
-      <header>Download started...</header>
-      <p>Downloading document. You will find it in your Downloads folder.</p>
-      <footer>
-        <button onclick="closeModal()" class="tef-button subdued">
-          Cancel
-        </button>
-        <button onclick="closeModal()" class="tef-button positive">
-          Accept
-        </button>
-      </footer>
-    </tef-dialog>
-    
-      <h2>Dialog</h2>
+    <h2>Demo</h2>
       <tef-dialog>
         <header>Download started...</header>
         <p>Downloading document. You will find it in your Downloads folder.</p>
@@ -115,6 +84,9 @@
       </code>
 
       <h2>Dialog with close button</h2>
+
+      <p>If <b>closeIcon</b> attribute is set, a "<b>X</b>" shaped close button will appear in the top right corner.</p>
+
       <tef-dialog closeIcon>
         <header>
           Download started...          
@@ -126,16 +98,60 @@
       </tef-dialog>
       <code>
         <style>
-      <tef-dialog>
-        <header>Download started...</header>
+      <tef-dialog closeIcon>
+        <header>
+          Download started...          
+        </header>
         <p>Downloading document. You will find it in your Downloads folder.</p>
         <footer>
-          <button class="tef-button subdued">Cancel</button>
           <button class="tef-button positive">Accept</button>
         </footer>
       </tef-dialog>
         </style>
       </code>
+
+      <h2>Modal behaviour</h2>
+      <p>If the <b>modal</b> attribute is set the dialog will have a modal behaviour. With this behaviour activated, you can call the <b>show()</b> and <b>hide()</b> methods.</p>
+      <p>If <b>closeIcon</b> is set, the close button will close the modal.</p>
+      <p>If <b>closeOutside</b> is set, clicking outside the dialog will close it too.</p>      
+      
+      <button onclick="launchModal()" class="tef-button positive">
+        Launch modal window
+      </button>
+      <code>
+        <style>
+    <tef-dialog modal id="modal1" closeIcon closeOutside>
+      <header>Download started...</header>
+      <p>Downloading document. You will find it in your Downloads folder.</p>
+      <footer>
+        <button onclick="closeModal()" class="tef-button subdued">Cancel</button>
+        <button onclick="closeModal()" class="tef-button positive">Accept</button>
+      </footer>
+    </tef-dialog>
+
+      //Javascript
+      var launchModal = function(){
+        document.getElementById('modal1').show();
+      }
+
+      var closeModal = function(){
+        document.getElementById('modal1').hide();
+      }
+        </style>
+      </code>
+
+    <tef-dialog modal id="modal1" closeIcon closeOutside>
+      <header>Download started...</header>
+      <p>Downloading document. You will find it in your Downloads folder.</p>
+      <footer>
+        <button onclick="closeModal()" class="tef-button subdued">
+          Cancel
+        </button>
+        <button onclick="closeModal()" class="tef-button positive">
+          Accept
+        </button>
+      </footer>
+    </tef-dialog>
 
     </div>
     <script>
