@@ -2,7 +2,7 @@
 <link rel="import" href="bower_components/core-style/core-style.html">
 <link rel="import" href="tef_dialog_styles.html">
 
-<polymer-element name="tef-dialog" attributes="modal closeIcon">
+<polymer-element name="tef-dialog" attributes="modal closeIcon closeOutside">
     <template>
         <core-style ref="tef-dialog"></core-style>
         <template if="{{modal}}">
@@ -21,6 +21,7 @@
         Polymer({
             modal: false,
             closeIcon: false,
+            closeOutside: false,
             hide: function(){
             	if (this.modal){
             		this.$.modal.setAttribute("class", "tef-modal");
@@ -32,7 +33,7 @@
             	}
             },
             ready: function(){
-                if (this.modal){
+                if (this.modal && this.closeOutside){
                     this.$.modal.addEventListener('click', function(event){
                         if (event.target == this.$.modal)
                             this.hide();
