@@ -36,15 +36,17 @@
     line-height: 25px;
     text-align: center;
     padding: 30px 40px 40px;
-    border-radius: 4px;
+    border-radius: {{g.radius}};
     box-shadow: {{g.shadow}};
   }
-  :host .tef-dialog header {
+  :host .tef-dialog header,
+  :host .tef-dialog ::content header {
     font-size: 26px;
     line-height: 28px;
     margin-bottom: 35px;
   }
-  :host .tef-dialog .tef-close {
+  :host .tef-dialog .tef-close,
+  :host .tef-dialog ::content .tef-close {
     position: absolute;
     top: 5px;
     right: 5px;
@@ -57,13 +59,16 @@
     cursor: pointer;
     border-radius: 50%;
   }
-  :host .tef-dialog footer {
+  :host .tef-dialog footer,
+  :host .tef-dialog ::content footer {
     margin-top: 25px;
   }
-  :host .tef-dialog footer .tef-button {
+  :host .tef-dialog footer .tef-button,
+  :host .tef-dialog ::content footer .tef-button {
     min-width: 120px;
   }
-  :host .tef-dialog footer .tef-button + .tef-button {
+  :host .tef-dialog footer .tef-button + .tef-button,
+  :host .tef-dialog ::content footer .tef-button + .tef-button {
     margin-left: 7px;
   }
 
